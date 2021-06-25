@@ -256,12 +256,9 @@ def f():
     pass
 
 
-f()
-f()
-f()
-f()
-f()
-f()
+for i in range(6):
+	f()
+	
 
 print(f.calls)
 f.reset_call_count()

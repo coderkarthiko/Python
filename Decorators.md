@@ -60,7 +60,7 @@ Hello, my name is Karthik!
 
 <br>
 
-Since functions are objects, we can return them.
+Since functions are objects, we can make functions return functions.
 
 ```python
 def outer(a):
@@ -81,7 +81,7 @@ print(parab(2))
 
 <br>
 
-Make a polynomial function generator.
+A polynomial generator. Pass in the coefficients, and out comes a polynomial with said coefficients.
 
 ```python
 def polynomial(*coeffs):
@@ -105,7 +105,7 @@ print(pol4(2))
 
 <br>
 
-Enter decorators! A decorator is a function that takes another function and extends the behavior of the latter function without explicitly modifying it.
+Enter decorators. A decorator is a function that takes another function and extends the behavior of the latter function without explicitly modifying it.
 
 ```python
 def A(*args):

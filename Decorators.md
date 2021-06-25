@@ -163,7 +163,7 @@ after A
 
 <br>
 
-When we decorate a function `A`, we modify it and return a new function `wrap`. We set `A` equal to `wrap`. The new function is at a different address, and it's attributes are different from that of the original function `A`. This is not ideal. To remedy this, we use `@functools.wraps` from the `functools` module.
+We pass `A` into `decor`, alter it, return `wrap`, and set `A` equal to `wrap`. Now, some of `A`'s original properties (\__name__, id, etc.) have changed. We only wanted to 'decorate' the function, not alter important properties. We use `@functools.wraps` to retain many properties of `A`.
 
 ```python
 def decor(f):

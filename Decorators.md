@@ -81,7 +81,7 @@ print(parab(2))
 
 <br>
 
-A polynomial generator. Pass in the coefficients, and out comes a polynomial with said coefficients.
+A polynomial generator.
 
 ```python
 def polynomial(*coeffs):

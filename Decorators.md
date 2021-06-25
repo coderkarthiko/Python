@@ -166,10 +166,6 @@ after A
 The `functools.wraps` makes sure the original function (that was passed into the decorator) retains it's name, etc.
 
 ```python
-import functools
-import time
-
-
 def decor(f):
     
     @functools.wraps(f)
@@ -201,9 +197,6 @@ function 'test' executed in 0.10294055938720703 seconds
 Count the number of times a function has been executed using decorators.
 
 ```python
-import functools
-
-
 def decor(f):
 
     @functools.wraps(f)
@@ -307,5 +300,4 @@ print(f(1, 2, 3, 4, 5))
 
 ```
 function f(1, 2, 3, 4, 5) executed
-15
 ```

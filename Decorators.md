@@ -86,13 +86,13 @@ Make a polynomial function generator.
 ```python
 def polynomial(*coeffs):
     
-    def wrapper(x):
+    def wrap(x):
         res = coeffs[0]
         for i in range(1, len(coeffs)):
             res = res * x + coeffs[i]
         return res
                  
-    return wrapper
+    return wrap
 	
 	
 pol4 = polynomial(3, 4, 2, 6)
@@ -114,12 +114,12 @@ def A(*args):
 
 def B(f): 
 
-    def wrapper(*args):
+    def wrap(*args):
         print("before " + f.__name__)
         f(*args)
         print("after " + f.__name__)
     
-    return wrapper
+    return wrap
     
     
 A = B(A)
@@ -139,12 +139,12 @@ Alternate implementation.
 ```python
 def B(f):
 
-	def wrapper(*args):
+	def wrap(*args):
 		print("before " + f.__name__)
 		f(*args)
 		print("after " + f.__name__)
 		
-	return wrapper
+	return wrap
 	
 	
 @B
@@ -163,7 +163,7 @@ after A
 
 <br>
 
-The `functools.wraps` makes sure the original function (that was passed into the decorator) retains it's name, etc.
+When we decorate a function `A`, we modify it and return a new function `wrap`. We set `A` equal to `wrap`. The new function is at a different address, and it's attributes are different from that of the original function `A`. This is not ideal. To remedy this, we use `@functools.wraps` from the `functools` module.
 
 ```python
 def decor(f):

@@ -1,4 +1,4 @@
-#### Decorators
+##### Decorators
 
 <br>
 
@@ -299,6 +299,56 @@ print(f(1, 2, 3, 4, 5))
 ```
 
 ```
+function f(1, 2, 3, 4, 5) executed
+```
+
+<br>
+
+Execute a function multiple times. Also, you can chain decorators.
+
+```python
+def repeat(n):
+    
+    def inner(f):
+        
+        @functools.wraps(f)
+        def wrap(*args, **kwargs):
+            for i in range(n):
+                f(*args, **kwargs)
+
+        return wrap
+    
+    return inner
+
+
+def decor(f):
+
+    @functools.wraps(f)
+    def wrap(*args, **kwargs):
+        argskwargs = [str(arg) for arg in args] + [f"{k}={v}" for k, v in kwargs.items()]
+        print(f"function {f.__name__}({', '.join(argskwargs)}) executed")
+        res = f(*args, **kwargs)
+        return res
+        
+    return wrap
+    
+
+@repeat(4)
+@decor
+def f(*args):
+    print(sum(args))
+    
+    
+f(1, 2, 3, 4, 5)
+```
+
+```
+function f(1, 2, 3, 4, 5) executed
+15
+function f(1, 2, 3, 4, 5) executed
+15
+function f(1, 2, 3, 4, 5) executed
+15
 function f(1, 2, 3, 4, 5) executed
 15
 ```

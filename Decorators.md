@@ -272,36 +272,7 @@ print(f.calls)
 
 <br>
 
-Debugging functions.
-
-```python
-def decor(f):
-
-    @functools.wraps(f)
-    def wrap(*args, **kwargs):
-        argskwargs = [str(arg) for arg in args] + [f"{k}={v}" for k, v in kwargs.items()]
-        print(f"function {f.__name__}({', '.join(argskwargs)}) executed")
-        res = f(*args, **kwargs)
-        return res
-        
-    return wrap
-    
-
-@decor
-def f(*args):
-    return sum(args)
-    
-    
-print(f(1, 2, 3, 4, 5))
-```
-
-```
-function f(1, 2, 3, 4, 5) executed
-```
-
-<br>
-
-Execute a function multiple times. Also, you can chain decorators.
+Print function parameters after execution using a decorator. Execute a function multiple times by using another decorator.
 
 ```python
 def repeat(n):

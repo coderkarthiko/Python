@@ -18,7 +18,7 @@ HELLO
 
 <br>
 
-We can pass a function as an argument into another function.
+Functions as arguments.
 
 ```python
 def g(function):
@@ -34,7 +34,7 @@ HELLO WORLD!
 
 <br>
 
-Some more examples! `lambda` functions can be arguments too.
+`lambda` functions as arguments.
 
 ```python
 a = lambda : "Hello"
@@ -194,7 +194,7 @@ function 'test' executed in 0.10294055938720703 seconds
 
 <br>
 
-Count the number of times a function has been executed using decorators.
+We can count the number of times a function has been executed using decorators.
 
 ```python
 def decor(f):
